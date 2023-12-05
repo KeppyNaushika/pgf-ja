@@ -2,33 +2,19 @@
 
 ![Test suite](https://github.com/pgf-tikz/pgf/actions/workflows/check.yml/badge.svg?branch=master)
 
-PGF is a TeX macro package for generating graphics. It is platform-
-and format-independent and works together with the most important TeX
-backend drivers, including `pdftex` and `dvips`. It comes with a
-user-friendly syntax layer called Ti*k*Z.
+PGF はグラフィックを生成するための TeX マクロパッケージです。プラットフォームやフォーマットに依存せず、`pdftex` や `dvips` を含む最も重要な TeX バックエンドドライバと一緒に動作します。また Ti*k*Z と呼ばれるユーザーフレンドリーなシンタックスレイヤーが付属しています。
 
-See the directory `doc/generic/pgf` for more information. See the file
-`doc/generic/pgf/pgfmanual.pdf` (also available from 
-https://pgf-tikz.github.io/pgf/pgfmanual.pdf) for a manual. This
-documentation also explains the installation.  See the file
-`doc/generic/pgf/license/LICENSE` for license details.
+より多くの情報を得るには `doc/generic/pgf` を参照して下さい。マニュアルは `doc/generic/pgf/pgfmanual.pdf` (https://pgf-tikz.github.io/pgf/pgfmanual.pdf も利用できます) を参照して下さい。このマニュアルはインストール方法についても説明しています。ライセンスの詳細については `doc/generic/pgf/license/LICENSE` を参照して下さい。
 
-Please go to the official repository at https://github.com/pgf-tikz/pgf or the
-official mailing list at https://tug.org/mailman/listinfo/pgf-tikz to submit
-bug reports, request new features, etc.
+バグレポートや新しい機能のリクエストは、公式リポジトリ（https://github.com/pgf-tikz/pgf）または公式メーリングリスト（https://github.com/pgf-tikz/pgf）にアクセスしてください。
 
-We also have a chat on the Matrix network at
-[#pgf-tikz:matrix.org](https://matrix.to/#/#pgf-tikz:matrix.org) ([read-only
-version](https://view.matrix.org/room/!NuxCISwYQJuyWwNsEI:matrix.org/)).
+Matrix network [#pgf-tikz:matrix.org](https://matrix.to/#/#pgf-tikz:matrix.org) ([read-only version](https://view.matrix.org/room/!NuxCISwYQJuyWwNsEI:matrix.org/)) でもチャットを行っています。
 
-## Installation
+## インストール方法
 
-In general you should just use the version of PGF that is shipped by
-your TeX distribution.  See their documentation on how to install
-packages.
+一般的には、お使いの TeX ディストリビューションに同梱されているバージョンの PGF をお使いください。 パッケージのインストール方法については、各ディストリビューションのドキュメントを参照してください。
 
-If you are feeling adventurous you can install the latest development
-version in TeX Live from our tlcontrib repository.
+もし興味があれば、私たちの tlcontrib リポジトリから TeX Live の最新開発版をインストールすることができます。
 ```console
 $ tlmgr repository add http://pgf-tikz.github.io/pgf/tlnet pgf-development
 $ tlmgr pinning add pgf-development "*"
@@ -36,14 +22,8 @@ $ tlmgr update --self --all
 $ tlmgr install pgf --reinstall
 ```
 
-## Development
-
-Currently PGF only has a very rudimentary test suite to check for
-regressions, so for now we check for bugs by building the manual for
-each commit.  To build the manual locally you can either copy the PGF
-repository into your texmf tree (not recommended) or use the usertree
-option of TeX Live.  For the usertree option on GNU/Linux, follow
-these steps:
+## 開発
+現在のところ、PGF にはリグレッションをチェックするための非常に初歩的なテストスイートしかありませんので、今のところ、コミットごとにマニュアルをビルドすることでバグをチェックしています。 ローカルにマニュアルを構築するには、PGFリポジトリを texmf ツリーにコピーするか（推奨しません）、 TeX Live の usertree オプションを使用します。 GNU/Linux で usertree オプションを使用する場合は、以下の手順に従ってください：
 ```console
 $ git clone https://github.com/pgf-tikz/pgf
 $ tlmgr init-usertree --usertree pgf
@@ -51,7 +31,5 @@ $ export TEXMFHOME=$(readlink -f pgf)
 $ cd pgf
 $ l3build doc -q -H
 ```
-We recommend building at least the version for LuaTeX, as shown in the
-example above because this has the broadest coverage of PGF features.
-To test the animations feature you have to build the version for
-dvisvgm.
+上の例で示したように、少なくとも LuaTeX 用のバージョンをビルドすることをお勧めします。
+アニメーション機能をテストするには、 dvisvgm 用のバージョンをビルドする必要があります。
